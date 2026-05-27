@@ -1,0 +1,27 @@
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+
+  label {
+    color: #ccc;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: white;
+
+    &:focus {
+      outline: none;
+      border-color: #ff7a00;
+      box-shadow: 0 0 8px rgba(255, 122, 0, 0.5);
+    }
+  }
+}

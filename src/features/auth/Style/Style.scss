@@ -1,0 +1,37 @@
+.auth {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #1f1f1f, #0d0d0d);
+//   color: black;
+
+  &__form {
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    background: #111;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    text-align: center;
+    // overflow: hidden;
+    color: white;
+   
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    p {
+     
+      margin-top: 15px;
+
+      span {
+        color: #ff7a00;
+        cursor: pointer;
+        font-weight: 500;
+      }
+    }
+  }
+}
