@@ -4,6 +4,7 @@ import "../../auth/Style/style.scss";
 import Button from "../component/Button";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import GoogleLoginButton from "../component/GoogleLoginButton";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -36,7 +37,7 @@ export default function LoginPage() {
     <div className="auth">
       <form className="auth__form" onSubmit={handleSubmit}>
         <h2>Login</h2>
-
+<GoogleLoginButton/>
         <Input
           type="email"
           placeholder="Email"
