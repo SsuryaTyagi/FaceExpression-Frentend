@@ -40,6 +40,7 @@ export default function useAuth() {
       setUser(res);
       return res;
     } catch (error) {
+       setUser(null);
       console.log(error);
     } finally {
       setLoading(false);
@@ -50,6 +51,7 @@ export default function useAuth() {
     setLoading(true);
     try {
       const res = await logout();
+      setUser(null);
     } catch (error) {
       console.log(error);
     } finally {

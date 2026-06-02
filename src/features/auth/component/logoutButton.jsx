@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LogoutButton.css";
+import "../Style/LogoutButton.css";
 import useAuth from "../hooks/useAuth";
 
 export default function LogoutButton() {

@@ -3,6 +3,7 @@ import FaceExpression from "../../Expression/components/FaceExpression";
 import PlaySong from "../components/PlaySong";
 import useSong from "../hooks/useSong";
 import "../style/Home.css";
+import LogoutButton from "../../auth/component/logoutButton";
 
 export default function Home() {
   const { handleGetSong, song } = useSong();
@@ -17,7 +18,7 @@ export default function Home() {
         <div className="nav-logo">
           <div className="nav-logo-mark" aria-hidden="true">
             <i className="ti ti-music" />
-          </div>
+          </div> 
           <span className="nav-logo-name">MoodTune</span>
         </div>
 
@@ -25,6 +26,7 @@ export default function Home() {
           <div className="nav-badge-dot" aria-hidden="true" />
           AI active
         </div>
+         <LogoutButton />
       </nav>
 
       {/* ── MAIN GRID ── */}

@@ -18,6 +18,7 @@ export const init = async ({ landmarkerRef, videoRef }) => {
 
   // webcam start
   const video = videoRef.current;
+  if (!video) return;
   const stream = await navigator.mediaDevices.getUserMedia({ video: true });
   video.srcObject = stream;
 };
