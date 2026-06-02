@@ -5,11 +5,7 @@ import "../style/FaceExpression.css"
 const EXPRESSION_META = {
   happy:     { emoji: "😄", label: "Happy",     color: "#fbbf24", bg: "rgba(251,191,36,0.12)"  },
   sad:       { emoji: "😢", label: "Sad",        color: "#60a5fa", bg: "rgba(96,165,250,0.12)"  },
-  angry:     { emoji: "😠", label: "Angry",      color: "#f87171", bg: "rgba(248,113,113,0.12)" },
-  surprised: { emoji: "😲", label: "Surprised",  color: "#a78bfa", bg: "rgba(167,139,250,0.12)" },
-  fearful:   { emoji: "😨", label: "Fearful",    color: "#34d399", bg: "rgba(52,211,153,0.12)"  },
-  disgusted: { emoji: "🤢", label: "Disgusted",  color: "#86efac", bg: "rgba(134,239,172,0.12)" },
-  neutral:   { emoji: "😐", label: "Neutral",    color: "#94a3b8", bg: "rgba(148,163,184,0.12)" },
+  normal:   { emoji: "😐", label: "Neutral",    color: "#94a3b8", bg: "rgba(148,163,184,0.12)" },
 };
 
 export default function FaceExpression({ onClick = () => {} }) {
