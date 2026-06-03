@@ -40,7 +40,7 @@ export default function useAuth() {
       setUser(res);
       return res;
     } catch (error) {
-       setUser(null);
+      setUser(null);
       console.log(error);
     } finally {
       setLoading(false);
@@ -60,7 +60,13 @@ export default function useAuth() {
   };
 
   useEffect(() => {
-    handleGetMe();
+      if (user) return; 
+
+    setLoading(true);
+    getMe()
+      .then((res) => setUser(res))
+      .catch(() => setUser(null))
+      .finally(() => setLoading(false));
   }, []);
   return {
     user,
