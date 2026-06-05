@@ -4,6 +4,7 @@ import PlaySong from "../components/PlaySong";
 import useSong from "../hooks/useSong";
 import "../style/Home.css";
 import LogoutButton from "../../auth/component/logoutButton";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   const { handleGetSong, song } = useSong();
@@ -14,21 +15,7 @@ export default function Home() {
       <div className="home-overlay" aria-hidden="true" />
 
       {/* ── NAV ── */}
-      <nav className="home-nav">
-        <div className="nav-logo">
-          <div className="nav-logo-mark" aria-hidden="true">
-            <i className="ti ti-music" />
-          </div> 
-          <span className="nav-logo-name">MoodTune</span>
-        </div>
-
-        <div className="nav-badge" aria-label="AI is active">
-          <div className="nav-badge-dot" aria-hidden="true" />
-          AI active
-        </div>
-         <LogoutButton />
-      </nav>
-
+      <Navbar/>
       {/* ── MAIN GRID ── */}
       <main className="home-content">
 
