@@ -1,20 +1,12 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { googleLoginURL } from "../services/auth.api";
-import "../Style/googleButton.css"
-function GoogleLoginButton({
-  text = "Continue with Google",
-}) {
+
+export default function GoogleButton() {
   return (
-    <button
-      type="button"
-      className="google-btn"
-      onClick={() => (window.location.href = googleLoginURL)}
-    >
-      <FcGoogle className="google-icon" />
-      <span>{text}</span>
+    <button className="auth__social-btn"
+      onClick={() => window.location.href = googleLoginURL}>
+      <FcGoogle size={16} /> Google
     </button>
   );
 }
-
-export default GoogleLoginButton;

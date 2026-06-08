@@ -1,71 +1,30 @@
-import React, { useState } from "react";
-import Input from "../component/Input";
-import "../../auth/Style/style.scss";
-import Button from "../component/Button";
-import { useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-import GoogleLoginButton from "../component/GoogleLoginButton";
+import React from "react";
+import "../Style/style.scss";
+import AuthLeft from "../component/AuthLeft";
+import AuthCard from "../component/AuthCard";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const navigate = useNavigate();
-
-  const { user, loading, handleLogin } = useAuth();
-
-  if (loading) {
-    return <h1>Loading....</h1>;
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const data = await handleLogin(email, password);
-      console.log(data);
-      navigate("/")
-    } catch (error) {
-      console.log(error);
-    }
-
-    setEmail("");
-    setPassword("");
-  };
-
   return (
     <div className="auth">
-      <form className="auth__form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-<GoogleLoginButton/>
-        <Input
-          type="email"
-          placeholder="Email"
-          name="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          label="Email"
-        />
+      {/* Nav */}
+      <div className="auth__nav">
+        <div className="auth__logo">
+          <div className="auth__logo-mark">
+            <i className="ti ti-music" aria-hidden="true" />
+          </div>
+          <span className="auth__logo-name">MoodTune</span>
+        </div>
+        <div className="auth__nav-badge">
+          <div className="auth__nav-badge-dot" />
+          AI powered
+        </div>
+      </div>
 
-        <Input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          label="Password"
-        />
-
-        <Button text="Login" type="submit" />
-        <p>
-          Don't have an account?{" "}
-          <span onClick={() => navigate("/register")}>Register</span>
-        </p>
-      </form>
+      {/* Grid */}
+      <div className="auth__main">
+        <AuthLeft />
+        <AuthCard />
+      </div>
     </div>
   );
 }

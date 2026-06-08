@@ -5,8 +5,8 @@ import { router } from './app.routes'
 
 export default function App() {
   return (
-    <>
-    <RouterProvider router={router}/>
-    </>
+    <div style={{ height: "100%", width: "100%" }}>
+      <RouterProvider router={router}/>
+    </div>
   )
 }
