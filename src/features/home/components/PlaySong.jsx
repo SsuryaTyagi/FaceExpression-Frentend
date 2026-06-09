@@ -119,7 +119,7 @@ export default function PlaySong() {
 
   const progress = duration ? (currentTime / duration) * 100 : 0;
 
-  return (
+ return (
     <div className="spotify-player">
       <audio
         ref={audioRef}
@@ -129,17 +129,32 @@ export default function PlaySong() {
         onEnded={() => setIsPlaying(false)}
       />
 
-      {/* Cover + Info + Heart */}
-      <div className="spotify-player__meta">
-        <div className="spotify-player__cover">
+      {/* ── FULL IMAGE ── */}
+      <div className="spotify-player__art">
+        {song.posterUrl ? (
           <img src={song.posterUrl} alt={song.title} />
+        ) : (
+          <div className="spotify-player__art--no-image">
+            <div className="spotify-player__waveform">
+              {[...Array(18)].map((_, i) => (
+                <div key={i} className="spotify-player__waveform-bar"
+                  style={{ height: `${20 + Math.random() * 28}px`, animationDelay: `${i * 0.07}s` }} />
+              ))}
+            </div>
+          </div>
+        )}
+        <div className="spotify-player__now-badge">
+          <div className="spotify-player__now-dot" />
+          Now playing
         </div>
+      </div>
 
+      {/* ── META ROW ── */}
+      <div className="spotify-player__meta">
         <div className="spotify-player__info">
           <h4>{song.title}</h4>
           <p>{song.mood}</p>
         </div>
-
         <button
           className={`spotify-player__heart${liked ? " liked" : ""}`}
           onClick={() => setLiked(v => !v)}
@@ -149,61 +164,33 @@ export default function PlaySong() {
         </button>
       </div>
 
-      {/* Progress */}
+      {/* ── PROGRESS ── */}
       <div className="spotify-player__progress">
         <span>{fmt(currentTime)}</span>
-        <div
-          className="spotify-player__bar"
-          onClick={handleSeek}
-          role="slider"
-          aria-label="Seek"
-          aria-valuenow={Math.round(progress)}
-        >
-          <div
-            className="spotify-player__bar-fill"
-            style={{ width: `${progress}%` }}
-          />
+        <div className="spotify-player__bar" onClick={handleSeek}
+          role="slider" aria-label="Seek" aria-valuenow={Math.round(progress)}>
+          <div className="spotify-player__bar-fill" style={{ width: `${progress}%` }} />
         </div>
         <span>{fmt(duration)}</span>
       </div>
 
-      {/* Controls */}
+      {/* ── CONTROLS ── */}
       <div className="spotify-player__controls">
-        <button className="spotify-player__icon-btn" aria-label="Shuffle">
-          <IconShuffle />
-        </button>
-        <button className="spotify-player__icon-btn" aria-label="Previous">
-          <IconSkipBack />
-        </button>
-        <button
-          className="spotify-player__play-btn"
-          onClick={togglePlay}
-          aria-label={isPlaying ? "Pause" : "Play"}
-        >
+        <button className="spotify-player__icon-btn" aria-label="Shuffle"><IconShuffle /></button>
+        <button className="spotify-player__icon-btn" aria-label="Previous"><IconSkipBack /></button>
+        <button className="spotify-player__play-btn" onClick={togglePlay}
+          aria-label={isPlaying ? "Pause" : "Play"}>
           {isPlaying ? <IconPause /> : <IconPlay />}
         </button>
-        <button className="spotify-player__icon-btn" aria-label="Next">
-          <IconSkipForward />
-        </button>
-        <button className="spotify-player__icon-btn" aria-label="Repeat">
-          <IconRepeat />
-        </button>
+        <button className="spotify-player__icon-btn" aria-label="Next"><IconSkipForward /></button>
+        <button className="spotify-player__icon-btn" aria-label="Repeat"><IconRepeat /></button>
       </div>
 
-      {/* Volume */}
+      {/* ── VOLUME ── */}
       <div className="spotify-player__footer">
-        <div className="vol-icon">
-          <IconVolume />
-        </div>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          step="1"
-          value={volume}
-          onChange={(e) => setVolume(Number(e.target.value))}
-          aria-label="Volume"
-        />
+        <div className="vol-icon"><IconVolume /></div>
+        <input type="range" min="0" max="100" step="1" value={volume}
+          onChange={(e) => setVolume(Number(e.target.value))} aria-label="Volume" />
       </div>
     </div>
   );

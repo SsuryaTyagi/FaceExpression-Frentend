@@ -48,7 +48,7 @@ export const detectExpression = ({
       getScore("mouthSmileLeft") > 0.5 && getScore("mouthSmileRight") > 0.5;
 
     const sad =
-      getScore("mouthFrownLeft") > 0.01 && getScore("mouthFrownRight") > 0.01;
+      getScore("mouthFrownLeft") > 0.003 && getScore("mouthFrownRight") > 0.003;
 
     console.log(getScore("mouthFrownLeft"));
     console.log(getScore("mouthFrownRight"));
