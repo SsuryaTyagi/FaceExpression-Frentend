@@ -46,7 +46,7 @@
 /* ── ROOT SHELL ── */
 .home-container {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--c-bg);
   font-family: var(--font-body);
   color: var(--c-text);
@@ -282,6 +282,11 @@
 
 .player-card.has-song {
   border-color: rgba(196, 168, 255, 0.20);
+    justify-content: flex-end;
+}
+.player-card.has-song > * {
+  flex: unset;                 /* PlaySong ko stretch mat karo */
+  width: 100%;
 }
 
 /* ── EMPTY STATE ── */
