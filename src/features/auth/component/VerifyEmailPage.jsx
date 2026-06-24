@@ -8,7 +8,7 @@ export default function VerifyEmailPage() {
   const [status, setStatus] = useState("verifying");
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/verify-email/${token}`)
+    axios.get(`face-expression-backend.vercel.app/verify-email/${token}`)
       .then(() => { setStatus("success"); setTimeout(() => navigate("/login"), 2000); })
       .catch((err) => setStatus(err.response?.data?.message || "Invalid link"));
   }, [token]);
