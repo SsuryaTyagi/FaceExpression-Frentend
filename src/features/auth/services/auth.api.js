@@ -44,5 +44,5 @@ export const logout = async () => {
   }
 };
 
-export const googleLoginURL = `face-expression-backend.vercel.app/google`;
+export const googleLoginURL = `https://face-expression-backend.vercel.app/google`;
 
