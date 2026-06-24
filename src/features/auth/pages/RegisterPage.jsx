@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../auth/Style/style.scss";
+import "../Style/style.scss";
 import { useNavigate } from "react-router-dom";
 import Input from "../component/Input";
 import Button from "../component/Button";
