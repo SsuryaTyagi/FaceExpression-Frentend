@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import useSong from "../hooks/useSong";
-import "../style/PlaySong.css";   // <-- CSS not SCSS
+import "../style/playSong.css";   // <-- CSS not SCSS
 
 // Simple inline SVG icons
 const IconPlay = () => (
