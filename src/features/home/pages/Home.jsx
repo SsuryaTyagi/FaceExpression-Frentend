@@ -3,7 +3,7 @@ import "../style/Home.css";
 import useSong from "../hooks/useSong";
 import Navbar from "../components/Navbar";
 import LeftPanel from "../components/LeftPanel";
-import RightPanel from "../components/RightPanel";
+import { RightPanel } from "../components/RightPanel";
 
 export default function Home() {
   const { handleGetSong, song } = useSong();
@@ -22,14 +22,15 @@ export default function Home() {
       <footer className="home-footer">
         <div className="footer-hint">
           <i className="ti ti-keyboard" aria-hidden="true" />
-          Press <kbd className="kbd">Space</kbd> to scan
-          &nbsp;·&nbsp;
+          Press <kbd className="kbd">Space</kbd> to scan &nbsp;·&nbsp;
           <kbd className="kbd">L</kbd> to like
         </div>
         <nav className="footer-links" aria-label="Footer links">
           <a href="/privacy">Privacy</a>
           <a href="/docs">Docs</a>
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
         </nav>
       </footer>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import PlaySong from "./PlaySong";
+import {PlaySong} from "./PlaySong";
 
 export default function RightPanel({ song }) {
   return (
