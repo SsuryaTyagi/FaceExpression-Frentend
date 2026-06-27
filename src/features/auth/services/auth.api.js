@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "face-expression-backend.vercel.app",
+  baseURL: "https://face-expression-backend.vercel.app",
   withCredentials: true,
 });
 
